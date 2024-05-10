@@ -1,24 +1,30 @@
-/* color palette from <https://github.com/vuejs/theme> */
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  --vt-c-white: #fdf8f6;
+  --vt-c-white-soft: #fdf8f6;
+  --vt-c-white-mute: #f1edeb;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --vt-c-black: #1c1b1a ;
+  --vt-c-black-soft: #201f1e;
+  --vt-c-black-mute: #2b2a29;
 
-  --vt-c-indigo: #2c3e50;
+  --green: #45664d;
+  --orange: #D05402;
+  --bright-orange: #FD7921;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --orange-bg: rgba(208, 84, 2, 0.2);
+  --bright-orange-bg: rgba(253, 121, 33, 0.2);
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-divider-light-1: #767871;
+  --vt-c-divider-light-2: #c6c7c0;
+  --vt-c-divider-dark-1: #90918b;
+  --vt-c-divider-dark-2: #464742;
+
+  --vt-c-text-light-1: var(--vt-c-green);
+  --vt-c-text-light-2: #464742;
   --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --vt-c-text-dark-2: #c6c7c0;
 }
 
 /* semantic color variables for this project */
@@ -32,6 +38,9 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+
+  --color-accent: var(--orange);
+  --color-accent-bg: var(--orange-bg);
 
   --section-gap: 160px;
 }
@@ -47,6 +56,9 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+    --color-accent: var(--bright-orange);
+    --color-accent-bg: var(--bright-orange-bg);
   }
 }
 
@@ -66,21 +78,16 @@ body {
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.tenor-sans-regular {
+  font-family: "Tenor Sans", sans-serif;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-style: normal;
 }

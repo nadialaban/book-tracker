@@ -1,0 +1,35 @@
+@import 'base.css';
+
+#app {
+  /*max-width: 1280px;*/
+  margin: 0 auto;
+  /*padding: 2rem;*/
+  font-weight: normal;
+}
+
+a,
+.accent {
+  text-decoration: none;
+  color: var(--color-accent);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: var(--color-accent-bg);
+  }
+}
+
+@media (min-width: 100px) {
+  body {
+  }
+
+  #app {
+  }
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
