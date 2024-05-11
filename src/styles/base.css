@@ -9,9 +9,34 @@
   --vt-c-black-soft: #201f1e;
   --vt-c-black-mute: #2b2a29;
 
-  --green: #45664d;
+  --light-primary-green: #45664d;
+  --light-primary-green-text: #ffffff;
+  --light-primary-green-hover: #507559;
+
+  --light-secondary-green: #93b799;
+  --light-secondary-green-text: #082915;
+  --light-secondary-green-hover: #b7d0b5;
+
+  --dark-primary-green: #abcfb1;
+  --dark-primary-green-text: #173721;
+  --dark-primary-green-hover: #d2eccf;
+
+  --dark-secondary-green: #80a386;
+  --dark-secondary-green-text: #203522;
+  --dark-secondary-green-hover: #a9c2a7;
+
   --orange: #D05402;
   --bright-orange: #FD7921;
+
+  --error-light: #ba1a1a;
+  --error-light-hover: #da3c3c;
+  --error-light-bg: #ffdad6;
+  --error-light-text: #410002;
+
+  --error-dark: #690005;
+  --error-dark-hover: #9a040e;
+  --error-dark-bg: #93000a;
+  --error-dark-text: #ffdad6;
 
   --orange-bg: rgba(208, 84, 2, 0.2);
   --bright-orange-bg: rgba(253, 121, 33, 0.2);
@@ -39,10 +64,23 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  --primary-color: var(--light-primary-green);
+  --primary-color-text: var(--light-primary-green-text);
+  --primary-color-hover: var(--light-primary-green-hover);
+
+  --secondary-color: var(--light-secondary-green);
+  --secondary-color-text: var(--light-secondary-green-text);
+  --secondary-color-hover: var(--light-secondary-green-hover);
+
   --color-accent: var(--orange);
   --color-accent-bg: var(--orange-bg);
 
   --section-gap: 160px;
+
+  --error: var(--error-light);
+  --error-hover: var(--error-light-hover);
+  --error-bg: var(--error-light-bg);
+  --error-text: var(--error-light-text);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,6 +97,19 @@
 
     --color-accent: var(--bright-orange);
     --color-accent-bg: var(--bright-orange-bg);
+
+    --primary-color: var(--dark-primary-green);
+    --primary-color-text: var(--dark-primary-green-text);
+    --primary-color-hover: var(--dark-primary-green-hover);
+
+    --secondary-color: var(--dark-secondary-green);
+    --secondary-color-text: var(--dark-secondary-green-text);
+    --secondary-color-hover: var(--dark-secondary-green-hover);
+
+    --error: var(--error-dark);
+    --error-hover: var(--error-dark-hover);
+    --error-bg: var(--error-dark-bg);
+    --error-text: var(--error-dark-text);
   }
 }
 
@@ -78,7 +129,7 @@ body {
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
