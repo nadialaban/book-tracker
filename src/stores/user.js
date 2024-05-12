@@ -32,6 +32,7 @@ const useUserStore = defineStore('userStore', {
                     refreshToken: response.data.refreshToken,
                 }
 
+                localStorage.setItem('userId', response.data.id)
                 localStorage.setItem('userTokens', JSON.stringify({
                     accessToken: this.userInfo.accessToken,
                     refreshToken: this.userInfo.refreshToken}))
@@ -44,8 +45,29 @@ const useUserStore = defineStore('userStore', {
                 this.loading = false
             }
         },
+        async getUserInfo() {
+            try {
+                let id = localStorage.getItem('userId')
+                let response = await axiosApiInstance
+                    .get(url + 'api/v1/users/' + id)
+
+                let tokens = JSON.parse(localStorage.getItem('userTokens'))
+
+                this.userInfo = {
+                    id: response.data.id,
+                    username: response.data.username,
+                    accessToken: tokens.accessToken,
+                    refreshToken: tokens.refreshToken,
+                }
+                console.log(this.userInfo)
+            } catch (err) {
+                this.error = err
+                throw err
+            }
+        },
         logout() {
             localStorage.removeItem('userTokens')
+            localStorage.removeItem('userId')
 
             this.userInfo = {
                 id: undefined,

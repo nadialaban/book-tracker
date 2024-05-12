@@ -11,6 +11,7 @@ const isOpenMenu = ref(false);
 
 onMounted(() => {
     if (localStorage.getItem('userTokens')) {
+        userStore.getUserInfo()
         userStore.isAuthorised = true
     }
 })

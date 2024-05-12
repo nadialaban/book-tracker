@@ -52,7 +52,6 @@ const fieldType = computed(() => {
 
 const passwordShowHide = () => {
     states.isHidden = !states.isHidden
-    console.log(states.isHidden)
 }
 </script>
 
@@ -74,7 +73,6 @@ const passwordShowHide = () => {
                 <icon-show-hide :hide="states.isHidden"/>
             </button>
         </div>
-
 
 
         <TransitionGroup>

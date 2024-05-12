@@ -7,13 +7,21 @@ export const url = import.meta.env.VITE_API_URL
 
 // add token
 axiosApiInstance.interceptors.request.use((config) => {
+    const userStore = useUserStore()
+
     const url = config.url
     const public_requests = ['login', 'register']
 
     // if not public request
     if (!public_requests.filter((endpoint) => url.includes(endpoint)).length) {
-        const userStore = useUserStore()
-        config.headers.Authorization = userStore.userInfo.accessToken
+        let token = userStore.userInfo.accessToken
+        if (!token) {
+            token = JSON.parse(localStorage.getItem('userTokens')).accessToken
+        }
+
+        config.headers.Authorization = `Bearer ${token}`
+        config.headers["Access-Control-Allow-Origin"] = "*"
+        console.log('config', config)
     }
 
     return config
@@ -26,6 +34,7 @@ axiosApiInstance.interceptors.response.use((response) => {
     const userStore = useUserStore()
 
     const originalRequest = error.config
+    console.log(originalRequest.headers)
     if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
         try {
