@@ -12,20 +12,15 @@ const useUserStore = defineStore('userStore', {
             refreshToken: undefined
         },
         loading: false,
-        error: ''
+        error: '',
+        isAuthorised: false
     }),
-    getters: {
-        isAuthorised() {
-            return localStorage.getItem('userTokens')
-        }
-    },
     actions: {
         /**
          * @param {object} payload - username, password
          * */
         async auth(payload) {
             this.loading = true
-
             try {
                 let response = await axiosApiInstance
                     .post(url + 'api/v1/auth/login', payload)
@@ -40,6 +35,8 @@ const useUserStore = defineStore('userStore', {
                 localStorage.setItem('userTokens', JSON.stringify({
                     accessToken: this.userInfo.accessToken,
                     refreshToken: this.userInfo.refreshToken}))
+
+                this.isAuthorised = true
             } catch (err) {
                 this.error = err
                 throw err
@@ -56,6 +53,8 @@ const useUserStore = defineStore('userStore', {
                 accessToken: undefined,
                 refreshToken: undefined
             }
+
+            this.isAuthorised = false
         }
     }
 })

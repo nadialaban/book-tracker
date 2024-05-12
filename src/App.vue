@@ -1,13 +1,19 @@
 <script setup>
 import LayoutHeader from './components/layout/Header.vue'
 
+import {ref, onMounted} from "vue";
 import {RouterView} from 'vue-router'
+
 import useUserStore from '@/stores/user'
-import {ref} from "vue";
 
 const userStore = useUserStore()
-
 const isOpenMenu = ref(false);
+
+onMounted(() => {
+    if (localStorage.getItem('userTokens')) {
+        userStore.isAuthorised = true
+    }
+})
 
 const toggleMenu = () => {
     isOpenMenu.value = !isOpenMenu.value;
