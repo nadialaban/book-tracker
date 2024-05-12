@@ -1,3 +1,13 @@
+<script setup>
+import useUserStore from '@/stores/user.js'
+
+const userStore = useUserStore()
+
+function logout() {
+    userStore.logout()
+}
+</script>
+
 <template>
     <header class="header">
         <div class="logo-container">
@@ -5,8 +15,7 @@
             <h2 class="tenor-sans-regular">буктрекер</h2>
         </div>
         <nav>
-            <router-link to="/">Главная</router-link>
-            <router-link to="/">Аккаунт</router-link>
+            <router-link to="/login" @click="logout">Выход</router-link>
         </nav>
     </header>
 </template>
@@ -50,7 +59,7 @@ nav a:first-of-type {
     border: 0;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 300px) {
     header {
         display: flex;
         place-items: center;
@@ -75,7 +84,3 @@ nav a:first-of-type {
 }
 
 </style>
-
-<script setup>
-
-</script>

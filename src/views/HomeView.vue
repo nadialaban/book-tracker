@@ -3,5 +3,6 @@
 
 <template>
   <main>
+      Скоро..
   </main>
 </template>

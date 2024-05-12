@@ -30,7 +30,7 @@ axiosApiInstance.interceptors.response.use((response) => {
         originalRequest._retry = true;
         try {
             const newTokens = await axios
-                .post(url + 'refresh',
+                .post(url + 'api/v1/auth/refresh',
                     JSON.parse(localStorage.getItem('userTokens')).refreshToken)
 
             console.log('got tokens:', newTokens.data);
@@ -49,6 +49,10 @@ axiosApiInstance.interceptors.response.use((response) => {
             userStore.logout()
             await router.push('/login')
         }
+    }
+
+    if (error.response.status === 400) {
+        throw error.response.data.message
     }
     console.log(error);
 })

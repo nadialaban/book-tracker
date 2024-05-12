@@ -1,7 +1,7 @@
 <script setup>
 import LayoutHeader from './components/layout/Header.vue'
 
-import {RouterLink, RouterView} from 'vue-router'
+import {RouterView} from 'vue-router'
 import useUserStore from '@/stores/user'
 import {ref} from "vue";
 

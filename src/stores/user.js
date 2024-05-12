@@ -16,7 +16,7 @@ const useUserStore = defineStore('userStore', {
     }),
     getters: {
         isAuthorised() {
-            return this.userInfo.id !== undefined
+            return localStorage.getItem('userTokens')
         }
     },
     actions: {
@@ -30,12 +30,26 @@ const useUserStore = defineStore('userStore', {
                 let response = await axiosApiInstance
                     .post(url + 'api/v1/auth/login', payload)
 
-                console.log(response.data)
-            } catch (e) {
-                console.log(e)
+                this.userInfo = {
+                    id: response.data.id,
+                    username: response.data.username,
+                    accessToken: response.data.accessToken,
+                    refreshToken: response.data.refreshToken,
+                }
+
+                localStorage.setItem('userTokens', JSON.stringify({
+                    accessToken: this.userInfo.accessToken,
+                    refreshToken: this.userInfo.refreshToken}))
+            } catch (err) {
+                this.error = err
+                throw err
+            } finally {
+                this.loading = false
             }
         },
         logout() {
+            localStorage.removeItem('userTokens')
+
             this.userInfo = {
                 id: undefined,
                 username: undefined,

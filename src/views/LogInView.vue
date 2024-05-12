@@ -4,18 +4,28 @@ import useUserStore from '@/stores/user.js'
 
 import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
+import Error from '@/components/Error.vue'
+import router from "@/router/index.js";
 
 const usernameField = ref('')
 const passwordField = ref('')
 
+const errorName = ref('')
+const errorMsg = ref('')
+
 const userStore = useUserStore()
 
-function login() {
-    console.log('login!')
-    userStore.auth({
-        username: usernameField,
-        password: passwordField
-    })
+async function login() {
+    try {
+        await userStore.auth({
+            username: usernameField.value,
+            password: passwordField.value
+        })
+
+        await router.push('/')
+    } catch (e)  {
+        errorMsg.value = e
+    }
 }
 
 </script>
@@ -32,6 +42,8 @@ function login() {
                    v-model:value="passwordField"/>
 
             <Button label="Войти" @click="login"/>
+
+            <error :msg="errorMsg" :title="errorName" v-if="errorMsg"/>
         </div>
     </div>
 </template>
