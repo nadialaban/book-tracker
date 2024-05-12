@@ -27,8 +27,8 @@ const useUserStore = defineStore('userStore', {
             this.loading = true
 
             try {
-               let response = await axiosApiInstance
-                   .post(url + 'login', payload)
+                let response = await axiosApiInstance
+                    .post(url + 'api/v1/auth/login', payload)
 
                 console.log(response.data)
             } catch (e) {
