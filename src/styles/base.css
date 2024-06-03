@@ -46,7 +46,7 @@
   --vt-c-divider-dark-1: #90918b;
   --vt-c-divider-dark-2: #464742;
 
-  --vt-c-text-light-1: var(--vt-c-green);
+  --vt-c-text-light-1: var(--light-primary-green);
   --vt-c-text-light-2: #464742;
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: #c6c7c0;
@@ -81,6 +81,17 @@
   --error-hover: var(--error-light-hover);
   --error-bg: var(--error-light-bg);
   --error-text: var(--error-light-text);
+
+  /*loader*/
+  --hue-loader: 132;
+  --bg-loader: hsl(var(--hue-loader),10%,90%);
+  --fg-loader: hsl(var(--hue-loader),10%,10%);
+  --primary-loader: hsl(var(--hue-loader),14%,47%);
+  --primary-l-loader: hsl(var(--hue-loader),14%,57%);
+  --primary-d-loader: hsl(var(--hue-loader),14%,37%);
+  --white-loader: hsl(var(--hue-loader),10%,100%);
+  --white-d-loader: hsl(var(--hue-loader),10%,45%);
+
 }
 
 @media (prefers-color-scheme: dark) {
