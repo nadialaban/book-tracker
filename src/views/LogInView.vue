@@ -36,12 +36,14 @@ async function login() {
             <img alt="logo" class="logo" src="@/assets/logo.svg" width="100" height="100"/>
             <h2 class="tenor-sans-regular">буктрекер</h2>
             <Input name="username" placeholder="Введите логин" label="Логин"
+                   width="100%"
                    v-model:value="usernameField"/>
 
-            <Input name="password" placeholder="Введите пароль" label="Пароль" type="password"
+            <Input name="password" placeholder="Введите пароль" label="Пароль"
+                   type="password" width="100%"
                    v-model:value="passwordField"/>
 
-            <Button label="Войти" @click="login"/>
+            <Button label="Войти" :block="true" @click="login"/>
 
             <error :msg="errorMsg" :title="errorName" v-if="errorMsg"/>
         </div>
@@ -51,7 +53,11 @@ async function login() {
 <style scoped>
 .content {
     justify-content: center;
-    display: grid;
+    width: 90%;
+    min-width: 120px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {

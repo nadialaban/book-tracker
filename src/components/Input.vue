@@ -61,13 +61,10 @@ const passwordShowHide = () => {
 
 
         <div class="input-group">
-            <input class="input-text"
-                   :type="fieldType"
-                   :name="name"
-                   :id="name"
-                   :placeholder="placeholder"
-                   :value="value"
-                   @input="updateValue" :label="label">
+            <input class="input-text" :type="fieldType"
+                   :label="label" :name="name" :id="name"
+                   :placeholder="placeholder" :value="value"
+                   @input="updateValue" @keyup.enter="">
 
             <button v-if="type === 'password'" class="input-icon" @click="passwordShowHide">
                 <icon-show-hide :hide="states.isHidden"/>
@@ -90,7 +87,7 @@ const passwordShowHide = () => {
 <style lang="scss" scoped>
 .form {
     &-input {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         position: relative;
     }
 

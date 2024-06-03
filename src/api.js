@@ -21,7 +21,6 @@ axiosApiInstance.interceptors.request.use((config) => {
 
         config.headers.Authorization = `Bearer ${token}`
         config.headers["Access-Control-Allow-Origin"] = "*"
-        console.log('config', config)
     }
 
     return config
@@ -34,7 +33,6 @@ axiosApiInstance.interceptors.response.use((response) => {
     const userStore = useUserStore()
 
     const originalRequest = error.config
-    console.log(originalRequest.headers)
     if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
         try {
@@ -63,7 +61,6 @@ axiosApiInstance.interceptors.response.use((response) => {
     if (error.response.status === 400) {
         throw error.response.data.message
     }
-    console.log(error);
 })
 
 export default axiosApiInstance

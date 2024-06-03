@@ -27,6 +27,10 @@ const props = defineProps({
     size: {
         type: String,
         default: 'normal'
+    },
+    block: {
+        type: Boolean,
+        default: false
     }
 })
 
@@ -39,7 +43,7 @@ const clickOnButton = () => {
 
 <template>
     <button
-        :class="['btn', `btn-${color}`, {'btn-outlined': outlined}, {'btn-icon': withIcon}, {'btn-large': size === 'large'}]"
+        :class="['btn', `btn-${color}`, {'btn-outlined': outlined}, {'btn-icon': withIcon}, {'btn-large': size === 'large'}, {'btn-block': block}]"
         :disabled="disabled" @click="clickOnButton" :label="label">
         <span v-if="withIcon"><slot></slot></span>
         <span v-else>{{ label }}</span>
@@ -48,7 +52,7 @@ const clickOnButton = () => {
 
 <style scoped lang="scss">
 .btn {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 10px;
     padding: 0 20px;
     height: 40px;
@@ -112,6 +116,10 @@ const clickOnButton = () => {
     &-large {
         height: 48px;
         padding: 0 30px;
+    }
+
+    &-block {
+        width: 100%;
     }
 }
 </style>
