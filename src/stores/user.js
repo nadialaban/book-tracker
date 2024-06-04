@@ -63,7 +63,6 @@ export const useUserStore = defineStore('userStore', () => {
                 accessToken: tokens.accessToken,
                 refreshToken: tokens.refreshToken,
             }
-            isAuthorised.value = true
         } catch (err) {
             error.value = err
             throw err
