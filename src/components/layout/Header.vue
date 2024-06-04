@@ -22,10 +22,10 @@ function logout() {
 
 <style lang="scss" scoped>
 .header {
-    background: var(--color-background);
+    background: rgb(255,255,255,0.03);
     padding: 0 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
-    height: 45px;
+    height: 50px;
     display: flex;
     align-items: center;
     z-index: 1;
