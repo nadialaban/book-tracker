@@ -4,15 +4,14 @@ import LayoutHeader from './components/layout/Header.vue'
 import {ref, onMounted} from "vue";
 import {RouterView} from 'vue-router'
 
-import useUserStore from '@/stores/user'
+import {useUserStore} from '@/stores/user'
 
 const userStore = useUserStore()
 const isOpenMenu = ref(false);
 
 onMounted(() => {
     if (localStorage.getItem('userTokens')) {
-        userStore.getUserInfo()
-        userStore.isAuthorised = true
+        userStore.loadUserInfo()
     }
 })
 

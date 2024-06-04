@@ -1,6 +1,6 @@
 import axios from "axios";
 import router from "@/router/index.js";
-import useUserStore from '@/stores/user.js'
+import {useUserStore} from '@/stores/user.js'
 
 const axiosApiInstance = axios.create()
 export const url = import.meta.env.VITE_API_URL
