@@ -25,7 +25,7 @@ export const useUserStore = defineStore('userStore', () => {
         loading.value = true
         try {
             let response = await axiosApiInstance
-                .post(url + 'api/v1/auth/login', payload)
+                .post(url + 'auth/login', payload)
 
             userInfo.value = {
                 id: response.data.id,
@@ -53,7 +53,7 @@ export const useUserStore = defineStore('userStore', () => {
         try {
             let id = localStorage.getItem('userId')
             let response = await axiosApiInstance
-                .get(url + 'api/v1/users/' + id)
+                .get(url + 'users/' + id)
 
             let tokens = JSON.parse(localStorage.getItem('userTokens'))
 

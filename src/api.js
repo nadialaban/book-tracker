@@ -37,7 +37,7 @@ axiosApiInstance.interceptors.response.use((response) => {
         originalRequest._retry = true;
         try {
             const newTokens = await axios
-                .post(url + 'api/v1/auth/refresh',
+                .post(url + 'auth/refresh',
                     JSON.parse(localStorage.getItem('userTokens')).refreshToken)
 
             console.log('got tokens:', newTokens.data);
