@@ -1,6 +1,7 @@
 <script setup>
 import IconShowHide from '@/components/icons/IconShowHide.vue'
 import {computed, reactive} from "vue";
+import EventBus from "@/event-bus.js";
 
 const emit = defineEmits(['update:value'])
 
@@ -64,7 +65,7 @@ const passwordShowHide = () => {
             <input class="input-text" :type="fieldType"
                    :label="label" :name="name" :id="name"
                    :placeholder="placeholder" :value="value"
-                   @input="updateValue" @keyup.enter="">
+                   @input="updateValue" @keyup.enter="EventBus.emit('enter-input', name)">
 
             <button v-if="type === 'password'" class="input-icon" @click="passwordShowHide">
                 <icon-show-hide :hide="states.isHidden"/>

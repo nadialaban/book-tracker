@@ -1,11 +1,12 @@
 <script setup>
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import {useUserStore} from '@/stores/user.js'
 
 import Input from '@/components/Input.vue'
 import Button from '@/components/Button.vue'
 import Error from '@/components/Error.vue'
 import router from "@/router/index.js";
+import EventBus from "@/event-bus.js";
 
 const usernameField = ref('')
 const passwordField = ref('')
@@ -27,6 +28,23 @@ async function login() {
         errorMsg.value = e
     }
 }
+
+onMounted(() => {
+    EventBus.on('enter-input', (sender) => {
+        switch (sender) {
+            case 'username':
+                if (usernameField.value)
+                    document.getElementById('password').focus()
+                break;
+            case 'password':
+                if (usernameField.value && passwordField.value)
+                    login()
+                break;
+            default:
+                break;
+        }
+    })
+})
 
 </script>
 
