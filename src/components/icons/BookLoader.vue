@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .book,
 .book__pg-shadow,
 .book__pg {
@@ -42,7 +42,7 @@
     top: calc(100% - 0.25em);
     height: 1.85em;
     transform: scaleY(0);
-    transform-origin: 100% 0%;
+    transform-origin: 100% 0;
 }
 .book__pg {
     animation-name: pg1;
