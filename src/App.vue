@@ -4,9 +4,12 @@ import LayoutHeader from './components/layout/Header.vue'
 import {ref, onMounted} from "vue";
 import {RouterView} from 'vue-router'
 
+import EventBus from "@/event-bus.js";
 import {useUserStore} from '@/stores/user'
+import {useBookStore} from "@/stores/book.js";
 
 const userStore = useUserStore()
+const bookStore = useBookStore()
 const isOpenMenu = ref(false);
 
 onMounted(() => {
@@ -14,6 +17,10 @@ onMounted(() => {
         userStore.isAuthorised = true
         userStore.loadUserInfo()
     }
+
+    EventBus.on('got-user-info', () => {
+        bookStore.loadUserBooks(userStore.userInfo.id)
+    })
 })
 
 const toggleMenu = () => {
@@ -32,7 +39,6 @@ const toggleMenu = () => {
 
 <style lang="scss" scoped>
 .content {
-    max-width: 1400px;
     margin-left: 250px;
     padding: 30px;
     transition: 0.2s;
@@ -42,7 +48,7 @@ const toggleMenu = () => {
     }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen {
     .content {
         margin-left: 0;
     }

@@ -4,6 +4,7 @@ import {ref} from "vue";
 
 import {url} from '@/api.js'
 import axiosApiInstance from "@/api.js";
+import EventBus from "@/event-bus.js";
 
 export const useUserStore = defineStore('userStore', () => {
     const userInfo = ref({
@@ -34,6 +35,8 @@ export const useUserStore = defineStore('userStore', () => {
                 refreshToken: response.data.refreshToken,
             }
 
+            EventBus.emit('got-user-info')
+
             localStorage.setItem('userId', response.data.id)
             localStorage.setItem('userTokens', JSON.stringify({
                 accessToken: userInfo.value.accessToken,
@@ -63,6 +66,7 @@ export const useUserStore = defineStore('userStore', () => {
                 accessToken: tokens.accessToken,
                 refreshToken: tokens.refreshToken,
             }
+            EventBus.emit('got-user-info')
         } catch (err) {
             error.value = err
             throw err
