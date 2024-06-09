@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
   --vt-c-white: #fdf8f6;
@@ -6,8 +8,8 @@
   --vt-c-white-mute: #f1edeb;
 
   --vt-c-black: #252d27 ;
-  --vt-c-black-soft: #201f1e;
-  --vt-c-black-mute: #2b2a29;
+  --vt-c-black-soft: #36413a;
+  --vt-c-black-mute: #1e2520;
 
   --light-primary-green: #45664d;
   --light-primary-green-text: #ffffff;
@@ -27,6 +29,16 @@
 
   --orange: #D05402;
   --bright-orange: #FD7921;
+  --dark-orange: #8D3901;
+
+  --yellow: #EF9206;
+  --bright-yellow: #fab245;
+
+  --blue: #0C6291;
+  --bright-blue: #118DD0;
+
+  --violet: #940162;
+  --bright-vioet: #B80077;
 
   --error-light: #ba1a1a;
   --error-light-hover: #da3c3c;
@@ -72,8 +84,21 @@
   --secondary-color-text: var(--light-secondary-green-text);
   --secondary-color-hover: var(--light-secondary-green-hover);
 
-  --color-accent: var(--orange);
-  --color-accent-bg: var(--orange-bg);
+  --color-accent-1: var(--orange);
+  --color-accent-1-text: var(--vt-c-white);
+  --color-accent-1-bg: rgb(from var(--color-accent-1) r g b / .3);
+
+  --color-accent-2: var(--yellow);
+  --color-accent-2-text: var(--vt-c-black);
+  --color-accent-2-bg: rgb(from var(--color-accent-2) r g b / .3);
+
+  --color-accent-3: var(--blue);
+  --color-accent-3-text: var(--vt-c-white);
+  ---color-accent-3-bg: rgb(from var(--color-accent-3) r g b / .3);
+
+  --color-accent-4: var(--violet);
+  --color-accent-4-text: var(--vt-c-white);
+  ---color-accent-4-bg: rgb(from var(--color-accent-4) r g b / .3);
 
   --section-gap: 160px;
 
@@ -106,8 +131,21 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
 
-    --color-accent: var(--bright-orange);
-    --color-accent-bg: var(--bright-orange-bg);
+    --color-accent-1: var(--bright-orange);
+    --color-accent-1-text: var(--vt-c-black);
+    --color-accent-1-bg: rgb(from var(--color-accent-1) r g b / .3);
+
+    --color-accent-2: var(--bright-yellow);
+    --color-accent-2-text: var(--vt-c-black);
+    --color-accent-2-bg: rgb(from var(--color-accent-2) r g b / .3);
+
+    --color-accent-3: var(--bright-blue);
+    --color-accent-3-text: var(--vt-c-black);
+    ---color-accent-3-bg: rgb(from var(--color-accent-3) r g b / .3);
+
+    --color-accent-4: var(--bright-vioet);
+    --color-accent-4-text: var(--vt-c-white);
+    ---color-accent-4-bg: rgb(from var(--color-accent-4) r g b / .3);
 
     --primary-color: var(--dark-primary-green);
     --primary-color-text: var(--dark-primary-green-text);
@@ -140,7 +178,7 @@ body {
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family: "Raleway", sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -149,7 +187,12 @@ body {
 
 .tenor-sans-regular {
   font-family: "Tenor Sans", sans-serif;
-  color: var(--color-accent);
+  color: var(--color-accent-1);
   font-weight: 600;
   font-style: normal;
+}
+
+.center-vertically {
+  margin-top: auto;
+  margin-bottom: auto;
 }

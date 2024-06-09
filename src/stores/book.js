@@ -3,6 +3,7 @@ import {ref} from "vue";
 
 import {url} from '@/api.js'
 import axiosApiInstance from "@/api.js";
+import Book from "@/models/Book.js";
 
 export const useBookStore = defineStore('bookStore', () => {
     const books = ref([])
@@ -20,7 +21,7 @@ export const useBookStore = defineStore('bookStore', () => {
             let response = await axiosApiInstance
                 .get(`${url}users/${user_id}/books`)
 
-            books.value = response.data
+            books.value = response.data.map((book) => new Book(book))
         } catch (err) {
             error.value = err
             throw err

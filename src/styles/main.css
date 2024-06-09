@@ -8,14 +8,14 @@
 a,
 .accent {
   text-decoration: none;
-  color: var(--color-accent);
+  color: var(--color-accent-1);
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: var(--color-accent-bg);
+    background-color: var(--color-accent-1-bg);
   }
 }
 

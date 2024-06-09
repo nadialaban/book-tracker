@@ -36,6 +36,7 @@ axiosApiInstance.interceptors.response.use((response) => {
     if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
         try {
+            console.log('refresh user tokens')
             const newTokens = await axios
                 .post(url + 'auth/refresh',
                     JSON.parse(localStorage.getItem('userTokens')).refreshToken)
@@ -51,8 +52,6 @@ axiosApiInstance.interceptors.response.use((response) => {
             }))
         } catch (err) {
             console.log(err);
-
-            localStorage.removeItem('userTokens')
             userStore.logout()
             await router.push('/login')
         }
